@@ -22,8 +22,10 @@ define(function (require) {
 			return this
 		},
 
-		add: function (content, index) {
-			var $tab = $('<tab>').append(content)
+		add: function ($tab, index) {
+			if ($tab[0].tagName != 'TAB') {
+				throw new Error('root of $tab should be <tab>')
+			}
 			if (typeof index == 'undefined') {
 				this.$dom.append($tab)
 			} else if (index > 0) {

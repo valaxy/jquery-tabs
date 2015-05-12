@@ -25,12 +25,13 @@ html
                     tab.active($(e.currentTarget))
                 })
 
-                tab.add("tab1")
-                tab.add("tab3")
-                tab.add("tab2", 1)
-
-                var id = 4
+                var id = 0
                 window.addTab = function () {
-                    tab.add('tab' + id++)
+                    tab.add($('<tab>').text('tab' + id++))
                 }
+
+                addTab()
+                addTab()
+                addTab()
+
             })
