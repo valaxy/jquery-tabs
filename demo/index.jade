@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title DEMO
+        link(rel="stylesheet" href="../index.css")
+    body
+        button(onclick="addTab()") add tab
+        script(src="../bower_components/requirejs/require.js")
+
+        // startup
+        script.
+            requirejs.config({
+                baseUrl: '../',
+                paths  : {
+                    jquery: 'bower_components/jquery/dist/jquery'
+                }
+            })
+            require(['require', './index'], function (require, Tab) {
+                var tab = new Tab
+                var $ = require('jquery')
+                $('body').append(tab.$dom)
+
+                tab.$dom.on('click', '>tab', function (e) {
+                    tab.active($(e.currentTarget))
+                })
+
+                tab.add("tab1")
+                tab.add("tab3")
+                tab.add("tab2", 1)
+
+                var id = 4
+                window.addTab = function () {
+                    tab.add('tab' + id++)
+                }
+            })

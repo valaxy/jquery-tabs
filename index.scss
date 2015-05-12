@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+tabs {
+	display: block;
+	border:  1px solid #ccc;
+
+	tab {
+		border-right: 1px solid #ccc;
+		cursor:       default;
+
+		&[active] {
+			background: #FF851B;
+		}
+	}
+}      
