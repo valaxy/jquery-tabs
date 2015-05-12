@@ -12,7 +12,8 @@
 - `getActive()` get the $tab of active
 
 # CSS Selector
-- `[active]` tab is active
-- `:not([active])` tab is inactive
-- `:nth-of-type(n)` n-th tab
+- `tabs` the root element
+- `tabs > tab[active]` tab is active
+- `tabs > tab:not([active])` tab is inactive
+- `tabs > tab:nth-of-type(n)` n-th tab
 - and so on
