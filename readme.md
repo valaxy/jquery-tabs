@@ -7,9 +7,9 @@
 - `new Tab()` 
 - `$dom` root element of tabs
 - `length` how many tabs
-- `active($tab)` active the $tab
 - `add($tab, [index])` append tab or at position of `index`, `$tab` must be `<tab>`
-- `removeAt(index)` remove at position of `index`
+- `remove($tab)` remove `$tab`
+- `active($tab)` active the $tab
 - `getAt(index)` get $tab at position of `index`
 - `getActive()` get the $tab of active
 

@@ -1,11 +1,11 @@
 {
-    "name": "tab",
+    "name": "jquery-tabs",
     "main": [
         "index.js",
         "index.scss"
     ],
     "version": "0.1.0-dev",
-    "homepage": "https://github.com/valaxy/tab",
+    "homepage": "https://github.com/valaxy/jquery-tabs",
     "authors": [
         "valaxy <valaxy@qq.com>"
     ],

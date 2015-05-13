@@ -6,6 +6,7 @@ html
         link(rel="stylesheet" href="../index.css")
     body
         button(onclick="addTab()") add tab
+        button(onclick="removeActive()") remove active
         script(src="../bower_components/requirejs/require.js")
 
         // startup
@@ -30,8 +31,11 @@ html
                     tab.add($('<tab>').text('tab' + id++))
                 }
 
-                addTab()
-                addTab()
-                addTab()
+                window.removeActive = function () {
+                    tab.remove(tab.getActive())
+                }
 
+                addTab()
+                addTab()
+                addTab()
             })

@@ -15,13 +15,6 @@ define(function (require) {
 			return this.$dom.find('>tab').length
 		},
 
-
-		active: function ($tab) {
-			this.$dom.find('>tab').removeAttr('active')
-			$tab.attr('active', '')
-			return this
-		},
-
 		add: function ($tab, index) {
 			if ($tab[0].tagName != 'TAB') {
 				throw new Error('root of $tab should be <tab>')
@@ -39,15 +32,26 @@ define(function (require) {
 			return this
 		},
 
-		removeAt: function (index) {
-			this.getAt(index).remove()
-			if (!this.getActive() && this.length > 0) {
-				if (index == 0) {
-					this.active(this.getAt(0))
-				} else {
-					this.active(this.getAt(index - 1))
+		remove: function ($tab) {
+			var prevTab = $tab[0].previousElementSibling
+			if (prevTab) {
+				$tab.remove()
+				if (this.getActive().length == 0) {
+					this.active($(prevTab))
+				}
+			} else {
+				var $parent = $tab.parent()
+				$tab.remove()
+				if (this.getActive().length == 0) {
+					this.active($($parent[0].firstChild))
 				}
 			}
+			return this
+		},
+
+		active: function ($tab) {
+			this.$dom.find('>tab').removeAttr('active')
+			$tab.attr('active', '')
 			return this
 		},
 
